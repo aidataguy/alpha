@@ -1,0 +1,7 @@
+== Alpha Blog	
+
+This is a test repo, NOT recommended to be used in production environment at all 
+
+Creator: Victor Alexandrov
+License: MIT
+Created Year: 2016
