@@ -1,9 +1,12 @@
-<h1>Showing the article <%= @article.title %></h1>
-<p>
-<p> <%= @article.title %></p>
-<p> <%= @article.description %></p>
-<p><%= @article.excerpt %></p>
-</p>
+<h3 class text-center>Showing the article <%= @article.title %></h3>
+<div class="container text-center">
+	<h2> <%= @article.title %></h2>
+	<div class="well"> 
+	<p><%= simple_format (@article.description) %></p>
+	<p><%= simple_format (@article.excerpt) %></p>
+	</div>
+</div>
+<%= link_to "Back to Articles", articles_path, class: "btn btn-success btn-large" %> 
+<%= link_to "Edit this Articl", edit_article_path(@article),  class: "btn btn-primary btn-large" %>
+<%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure you want to delete the artcile?"},  class: "btn btn-danger btn-large" %> 
 
-<%= link_to "Back to Articles", articles_path %> ||
-<%= link_to "Edit this Articl", edit_article_path(@article) %>
