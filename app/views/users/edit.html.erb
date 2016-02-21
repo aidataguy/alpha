@@ -1,0 +1,50 @@
+<h1 class="text-center">Update Your Account</h1>
+
+<%= render 'shared/errors', obj: @user %>
+
+<div class="row">
+	<div class="col-xs-12">
+		<%= form_for(@user, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+			<div class="form-group">
+				<div class="control-label col-xs-2">
+					<%= f.label :username %> 
+				</div>
+				<div class="col-xs-8">
+					<%= f.text_field :username, class: "form-control", placeholder: "Enter Desired username", autofocus: true %>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="control-label col-xs-2">
+					<%= f.label :email %> <br/>
+				</div>
+				<div class="col-xs-8">
+					<%= f.email_field :email, class:"form-control", placeholder: "Valid Email Address" %>
+				</div>
+			</div>	
+			<div class="form-group">
+				<div class="control-label col-xs-2">
+					<%= f.label :Password %>
+				</div>
+				<div class="col-xs-8">
+					<%= f.password_field :password, class:"form-control", placeholder: "Enter the password" %>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="control-label col-xs-2">
+					<%= f.label :Password %>
+				</div>
+				<div class="col-xs-8">
+					<%= f.password_field :password, class:"form-control", placeholder: "Re-enter the password" %>
+				</div>
+			</div>
+			<div class="form-group text-center ">
+				<div class="col-xs-12">
+					<%= f.submit "Update Account", class: "btn btn-primary btn-large text-center" %>
+				</div>
+			</div>
+		<% end %>
+		<div class="col-xs-12">
+			<%= link_to "Back to Articles", articles_path %>
+		</div>
+	</div>
+</div>
