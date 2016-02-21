@@ -1,4 +1,16 @@
 <h3 class text-center>Showing the article <%= @article.title %></h3>
+	<ul class="listings">
+		<div class="row text-center">
+			<h4>created by:</h4>
+			<div class="well col-xs-4 col-xs-offset-4 text-center">
+				<li><%= link_to gravatar_for(@article.user), user_path(@article.user) %></li>
+				<li class="article title">
+					<%= link_to @article.user.username, user_path(@article.user) %>
+				</li>
+				<li><small><%= pluralize(@article.user.articles.count, "article") if @article.user.articles %></small></li>
+			</div>
+		</div>
+	</ul>
 <div class="container text-center">
 	<h2> <%= @article.title %></h2>
 	<div class="well"> 
