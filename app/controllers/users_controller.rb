@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
 		@user = User.new(user_params)
 		if @user.save
+			session[:user_id] = @user.id
 			flash[:success] = "User Created, welcome to the blog #{@user.username}"
 			redirect_to articles_path
 		else
@@ -21,6 +22,10 @@ class UsersController < ApplicationController
 		def edit
 		end
 
+		def show
+			@user_articles = @user.articles.paginate(page: params[:page], per_page:5)
+		end
+
 		def update
 			if @user.update(user_params)
 				flash[:success] = "your accout info has been updated"
@@ -29,9 +34,7 @@ class UsersController < ApplicationController
 				render 'edit'
 			end
 		end
-		def show
-			@user_articles = @user.articles.paginate(page: params[:page], per_page:5)
-		end
+		
 
 	private
 	def user_params
