@@ -18,7 +18,8 @@
 	<p><%= simple_format (@article.excerpt) %></p>
 	</div>
 </div>
-<%= link_to "Back to Articles", articles_path, class: "btn btn-success btn-large" %> 
-<%= link_to "Edit this Articl", edit_article_path(@article),  class: "btn btn-primary btn-large" %>
-<%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure you want to delete the artcile?"},  class: "btn btn-danger btn-large" %> 
-
+<% if logged_in? && current_user == @article.user %>
+	<%= link_to "Back to Articles", articles_path, class: "btn btn-success btn-large" %> 
+	<%= link_to "Edit this Article", edit_article_path(@article),  class: "btn btn-primary btn-large" %>
+	<%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure you want to delete the artcile?"},  class: "btn btn-danger btn-large" %> 
+<% end %>
