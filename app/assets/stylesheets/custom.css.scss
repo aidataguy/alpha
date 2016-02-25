@@ -43,3 +43,16 @@ footer{
 	list-style: none
 	
 }
+
+.badge {
+	background-color: #C9302C;
+	margin: 0 5px;
+	a {
+		text-decoration: none;
+		color: #fff;
+	}
+}
+
+.input_checkbox input {
+	width: auto !important;
+}

@@ -16,6 +16,9 @@
 	<div class="well"> 
 	<p><%= simple_format (@article.description) %></p>
 	<p><%= simple_format (@article.excerpt) %></p>
+	<% if @article.categories.any? %>
+	 <p>Categories: <%= render @article.categories %> </p>
+	<% end %>
 	</div>
 </div>
 <% if logged_in? && (current_user == @article.user || current_user.admin?)  %>
